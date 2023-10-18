@@ -1,4 +1,4 @@
 export const environmentVehicle = {
     production: false,
-    apiURL: 'http://localhost:8001/api/vehicles',
+    apiURL: 'http://localhost:5001/api/vehicles',
   };

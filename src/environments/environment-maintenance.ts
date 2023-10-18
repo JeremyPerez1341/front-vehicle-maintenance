@@ -1,4 +1,4 @@
 export const environmentMaintenance = {
     production: false,
-    apiURL: 'http://localhost:8002/api/maintenances',
+    apiURL: 'http://localhost:5002/api/maintenances',
 }
