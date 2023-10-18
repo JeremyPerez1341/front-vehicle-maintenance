@@ -1,0 +1,56 @@
+<div class="container">
+    <section>
+        <div class="form-row">
+            <p class="plate-vehicle">Placa: {{ vehicle.plate }}</p>
+        </div>
+        <div class="form-row">
+            <div class="example-label">Tipo de mantenimiento</div>
+            <select [(ngModel)]="maintenanceData.typeMaintenance" [formControl]="typeMaintenanceControl" class="dataSelect">
+            <option value="Mantenimiento correctivo">Mantenimiento correctivo</option>
+            <option value="Mantenimiento preventivo">Mantenimiento preventivo</option>
+            <option value="Mantenimiento predictivo">Mantenimiento predictivo</option>
+            <option value="Mantenimiento detectable">Mantenimiento detectable</option>
+        </select>
+        </div>
+        <div class="error-input" *ngIf="typeMaintenanceControl.errors && typeMaintenanceControl.dirty">
+            <ng-container *ngIf="typeMaintenanceControl.hasError('required')">
+                Debes seleccionar un tipo de mantenimiento.
+            </ng-container>
+        </div>
+    </section>
+    <section>
+        <div class="form-row">
+            <div class="example-label">Descripción</div>
+            <input [(ngModel)]="maintenanceData.note" [formControl]="noteControl" class="dataInput" placeholder="">
+        </div>
+        <div class="error-input" *ngIf="noteControl.errors && noteControl.dirty">
+            <ng-container *ngIf="noteControl.hasError('pattern')">
+                Ingresa carácteres válidos.
+            </ng-container>
+            <ng-container *ngIf="noteControl.hasError('maxlength')">
+                Máximo 100 caracteres.
+            </ng-container>
+        </div>
+    </section>
+    <section>
+        <div class="form-row">
+            <div class="example-label">Costo (S/.)</div>
+            <input [(ngModel)]="maintenanceData.cost" [formControl]="costControl" class="dataInput" placeholder="">
+        </div>
+        <div class="error-input" *ngIf="costControl.errors && costControl.dirty">
+            <ng-container *ngIf="costControl.hasError('required')">
+                Debes ingresar el costo.
+            </ng-container>
+            <ng-container *ngIf="costControl.hasError('pattern')">
+                Solo permite números.
+            </ng-container>
+            <ng-container *ngIf="costControl.hasError('maxlength')">
+                Deben ser máximo 10 caracteres.
+            </ng-container>
+        </div>
+    </section>
+    <section class="button-section">
+        <button class="cancel-button" routerLink="/list-vehicles">Cancelar</button>
+        <button class="save-button" [disabled]="hasErrors()" (click)="saveMaintenance()">Guardar</button>
+    </section>
+</div>

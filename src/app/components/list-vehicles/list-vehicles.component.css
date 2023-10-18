@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  width: 20%;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.LOGO img {
+  max-width: 170px;
+  max-height: 170px;
+}
+
+.option-menu {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: rgb(95, 99, 104);
+}
+
+.option-menu p {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.sp-text {
+  padding-left: 20px;
+  line-height: 28px;
+}
+
+.right {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.header {
+  width: 80%;
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-full-width {
+  flex: 0 0 90%;
+  margin-right: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* responsive */
+  .option-menu {
+    font-size: 12px;
+  }
+
+  .sp-text {
+    padding-left: 0px
+  }
+
+  .LOGO img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+.table-vehicles {
+  width: 80%;
+  margin: 0 10%;
+}
+
+table {
+  margin: auto;
+}
+
+.mat-icon-new {
+  color: white;
+  margin: 0 auto
+}

@@ -1,0 +1,80 @@
+<div class="container">
+    <section>
+        <div class="form-row">
+            <div class="example-label">Marca</div>
+            <input [(ngModel)]="vehicleData.brand" [formControl]="brandControl" class="dataInput" placeholder="Ej. TOYOTA">
+        </div>
+        <div class="error-input" *ngIf="brandControl.errors && brandControl.dirty">
+            <ng-container *ngIf="brandControl.hasError('required')">
+                Debes ingresar una marca.
+            </ng-container>
+            <ng-container *ngIf="brandControl.hasError('pattern')">
+                Solo se permiten letras.
+            </ng-container>
+            <ng-container *ngIf="brandControl.hasError('minlength')">
+                Mínimo 3 caracteres.
+            </ng-container>
+            <ng-container *ngIf="brandControl.hasError('maxlength')">
+                Máximo 20 caracteres.
+            </ng-container>
+        </div>
+    </section>
+    <section>
+        <div class="form-row">
+            <div class="example-label">Modelo</div>
+            <input [(ngModel)]="vehicleData.model" [formControl]="modelControl" class="dataInput" placeholder="Ej. Prius">
+        </div>
+        <div class="error-input" *ngIf="modelControl.errors && modelControl.dirty">
+            <ng-container *ngIf="modelControl.hasError('required')">
+                Debes ingresar un modelo.
+            </ng-container>
+            <ng-container *ngIf="modelControl.hasError('pattern')">
+                Ingresa carácteres válidos.
+            </ng-container>
+            <ng-container *ngIf="modelControl.hasError('minlength')">
+                Mínimo 2 caracteres.
+            </ng-container>
+            <ng-container *ngIf="modelControl.hasError('maxlength')">
+                Máximo 25 caracteres.
+            </ng-container>
+        </div>
+    </section>
+    <section>
+        <div class="form-row">
+            <div class="example-label">Placa</div>
+            <input [(ngModel)]="vehicleData.plate" [formControl]="plateControl" class="dataInput" placeholder="Ej. A1A123">
+        </div>
+        <div class="error-input" *ngIf="plateControl.errors && plateControl.dirty">
+            <ng-container *ngIf="plateControl.hasError('required')">
+                Debes ingresar un login.
+            </ng-container>
+            <ng-container *ngIf="plateControl.hasError('pattern')">
+                Solo permite letras y números.
+            </ng-container>
+            <ng-container *ngIf="plateControl.hasError('minlength')">
+                Deben ser 6 caracteres
+            </ng-container>
+        </div>
+    </section>
+    <section>
+        <div class="form-row">
+            <div class="example-label">Año de fabricación</div>
+            <input [(ngModel)]="vehicleData.year" [formControl]="yearControl" class="dataInput" placeholder="Ej. 1999">
+        </div>
+        <div class="error-input" *ngIf="yearControl.errors && yearControl.dirty">
+            <ng-container *ngIf="yearControl.hasError('required')">
+                Debes ingresar un año.
+            </ng-container>
+            <ng-container *ngIf="yearControl.hasError('pattern')">
+                Solo permite números.
+            </ng-container>
+            <ng-container *ngIf="yearControl.hasError('minlength')">
+                Deben ser 4 caracteres.
+            </ng-container>
+        </div>
+    </section>
+    <section class="button-section">
+        <button class="cancel-button" routerLink="/list-vehicles">Cancelar</button>
+        <button class="save-button" [disabled]="hasErrors()" (click)="saveVehicle()">Guardar</button>
+    </section>
+</div>
